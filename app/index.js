@@ -40,7 +40,8 @@ var FriendsContainer = React.createClass({
 
 var ShowList = React.createClass({
   render: function () {
-    var listItems = this.props.friendNames.map(function (friend) {
+    var friendNames = this.props.friendNames;
+    var listItems = friendNames.map(function (friend) {
       return <li>{friend}</li>;
     });
 
