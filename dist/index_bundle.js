@@ -51,6 +51,14 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	  Focused
+	  Independent
+	  Reusable
+	  Small
+	  Testable
+	*/
+
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(159);
 
@@ -61,12 +69,78 @@
 	    return React.createElement(
 	      'div',
 	      { 'data-test': '12' },
-	      'Hellow World!'
+	      'Hellow React JS!'
+	    );
+	  }
+	});
+
+	var HelloUser = React.createClass({
+	  displayName: 'HelloUser',
+
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'Hello, ',
+	      this.props.name
+	    );
+	  }
+	});
+
+	var FriendsContainer = React.createClass({
+	  displayName: 'FriendsContainer',
+
+	  render: function () {
+	    var name = 'Andre Ward';
+	    var friends = ['Bob Marley', 'Stephen King', 'Karl May'];
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Name: ',
+	        name
+	      ),
+	      React.createElement(ShowList, { names: friends })
+	    );
+	  }
+	});
+
+	var ShowList = React.createClass({
+	  displayName: 'ShowList',
+
+	  render: function () {
+	    var listItems = this.props.names.map(function (friendName) {
+	      return React.createElement(
+	        'li',
+	        null,
+	        friendName
+	      );
+	    });
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Friends'
+	      ),
+	      React.createElement(
+	        'ul',
+	        null,
+	        listItems
+	      )
 	    );
 	  }
 	});
 
 	ReactDOM.render(React.createElement(HelloWorld, null), document.getElementById('app'));
+
+	ReactDOM.render(React.createElement(HelloUser, { name: 'Martin Svetoslavov' }), document.getElementsByClassName('user-greeting')[0]);
+
+	ReactDOM.render(React.createElement(FriendsContainer, null), document.getElementsByClassName('friend-list')[0]);
 
 /***/ },
 /* 2 */

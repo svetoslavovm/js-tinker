@@ -1,3 +1,11 @@
+/*
+  Focused
+  Independent
+  Reusable
+  Small
+  Testable
+*/
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -13,7 +21,7 @@ var HelloUser = React.createClass({
   render: function () {
     return (
       <div>Hello, {this.props.name}</div>
-    )
+    );
   }
 });
 
@@ -24,7 +32,7 @@ var FriendsContainer = React.createClass({
     return (
       <div>
         <h3>Name: {name}</h3>
-        <ShowList names={friends} />
+        <ShowList friend={name} friendNames={friends} />
       </div>
     )
   }
@@ -32,13 +40,13 @@ var FriendsContainer = React.createClass({
 
 var ShowList = React.createClass({
   render: function () {
-    var listItems = this.props.names.map(function (friend) {
+    var listItems = this.props.friendNames.map(function (friend) {
       return <li>{friend}</li>;
     });
 
     return (
       <div>
-        <h3>Friends</h3>
+        <h3>{this.props.friend}'s Friends</h3>
         <ul>
           {listItems}
         </ul>
@@ -53,7 +61,7 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <HelloUser name="Martin" />,
+  <HelloUser name="Martin Luther King" />,
   document.getElementsByClassName('user-greeting')[0]
 );
 
