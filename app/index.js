@@ -47,7 +47,7 @@ var ShowList = React.createClass({
 
     return (
       <div>
-        <h3>{this.props.friend}'s Friends</h3>
+        <h3>{this.props.friend} Friends</h3>
         <ul>
           {listItems}
         </ul>
